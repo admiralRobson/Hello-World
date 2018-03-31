@@ -1,0 +1,46 @@
+package com.company;
+
+import java.util.ArrayList;
+
+public class MobilePhone {
+    // MasterClass
+    private ArrayList<Contacts> mobilecontacts = new ArrayList<Contacts>();
+    // dodaje kontakt o klasie Contacts zdefiniowanej wcześniej
+
+    public void addcontact(Contacts contacts){
+        mobilecontacts.add(contacts);
+
+    }
+
+    // tworzenie listy kontaktów
+
+    public void printmobilecontact(){
+        for (int i =0; i< mobilecontacts.size();i++){
+            System.out.println(mobilecontacts.get(i));
+        }
+    }
+
+    // Modyfikowanie listy kontaktów, sprawdzenie czy kontakt istnieje
+    public void uppgradecontact(int position, Contacts newcontacts){
+
+        System.out.println(mobilecontacts.set((position-1), newcontacts));
+    }
+
+    public void deletecontact(int position){
+        Contacts removecontact = mobilecontacts.get(position);
+        mobilecontacts.remove((position-1));
+        System.out.println("A contact "+ removecontact+ "has been removed");
+    }
+
+    public void findcontact(Contacts searchingcontact){
+        boolean exist = mobilecontacts.contains(searchingcontact);
+        if (exist){
+            int searchingposition = mobilecontacts.indexOf(searchingcontact); // index of searching contact
+            System.out.println("A searching item exists in our contact list and have" + (searchingposition-1)+"index");
+        }
+        else{
+            System.out.println("A searching item does not exists in contact list");
+        }
+    }
+
+}
